@@ -91,7 +91,7 @@ Bienvenue dans la documentation des endpoints de l'API de notre application.
   #### Réponse
   Retourne une liste de pharmacies.
 
-### Créer une Nouvelle Pharmacie
+### Créer une Nouvelle Pharmacie (Ce endpoint requierd une authetification)
 
 - **Endpoint:** `POST /api/pharmacies`
   
