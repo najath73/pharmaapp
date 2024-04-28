@@ -84,17 +84,5 @@ produitsRouter.put('/pharmacies/:pharmacieId/produits/:produitId', authenticateT
 });
 
 
-// Endpoint pour effectuer une recherche de produits
-produitsRouter.get('/produits/recherche', async (req, res) => {
-  const searchTerm = req.query.q; // Récupérer le terme de recherche depuis les paramètres de requête query
 
-  try {
-      // Effectuer la recherche de produits en utilisant une expression régulière pour correspondre au terme de recherche
-      const produits = await Produit.find({ nom: { $regex: new RegExp(searchTerm, "i") } });
-
-      res.json(produits);
-  } catch (err) {
-      res.status(500).json({ message: err.message });
-  }
-});
 module.exports = produitsRouter;

@@ -54,4 +54,20 @@ pharmacieRouter.delete('/:id', authenticateToken, async(req, res) => {
 })
 
 
+// Endpoint pour effectuer une recherche de produits
+pharmacieRouter.get('/pharmacies/rechercher', async (req, res) => {
+  const termeRecherche = req.query.q; // Récupérer le terme de recherche depuis le paramètre de requête 'q'
+
+  try {
+      // Effectuer la recherche de produits dans les pharmacies
+      const pharmacies = await Pharmacie.find({
+          "produits.nom": { $regex: new RegExp(termeRecherche, "i") } // Recherche insensible à la casse
+      });
+
+      res.json(pharmacies);
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = pharmacieRouter;
