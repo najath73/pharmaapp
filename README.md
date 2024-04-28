@@ -14,12 +14,13 @@ Bienvenue dans la documentation des endpoints de l'API de notre application.
 - [Produits](#produits)
   - [Obtenir Tous les Produits](#obtenir-tous-les-produits)
   - [Rechercher des Produits](#rechercher-des-produits)
+  - [Créer un Nouveau Produit](#créer-un-nouveau-produit)
+  - [Modifier un Produit](#modifier-un-produit)
 - [Pharmacies](#pharmacies)
   - [Obtenir Toutes les Pharmacies](#obtenir-toutes-les-pharmacies)
   - [Créer une Nouvelle Pharmacie](#créer-une-nouvelle-pharmacie)
   - [Obtenir une Pharmacie par son ID](#obtenir-une-pharmacie-par-son-id)
   - [Modifier une Pharmacie](#modifier-une-pharmacie)
-  - [Supprimer une Pharmacie](#supprimer-une-pharmacie)
 - [Contribuer](#contribuer)
 - [Licence](#licence)
 
@@ -79,6 +80,35 @@ Bienvenue dans la documentation des endpoints de l'API de notre application.
   #### Réponse
   Retourne une liste de produits correspondant au terme de recherche.
 
+### Créer un Nouveau Produit  (Protéger par authentification)
+
+- **Endpoint:** `POST /api/produits`
+  
+  Permet de créer un nouveau produit dans le système.
+
+  #### Paramètres de la Requête
+  - `nom` : Nom du produit (chaîne de caractères, requis)
+  - `composant` : Composant du produit (chaîne de caractères, optionnel)
+  - `prix` : Prix du produit (chaîne de caractères, optionnel)
+  - `categorie` : Catégorie du produit (chaîne de caractères, optionnel)
+
+  #### Réponse
+  Retourne les détails du produit créé.
+
+### Modifier un Produit (Protéger par authentification)
+
+- **Endpoint:** `PUT /api/produits/:id`
+  
+  Permet de modifier un produit existant dans le système.
+
+  #### Paramètres de la Requête
+  - `nom` : Nouveau nom du produit (chaîne de caractères, requis)
+  - `composant` : Nouvelle description du produit (chaîne de caractères, optionnel)
+  - `prix` : Nouveau prix du produit (chaîne de caractères, optionnel)
+  - `categorie` : Nouvelle categorie du produit (chaîne de caractères, optionnel)
+
+  #### Réponse
+  Retourne les détails du produit modifié.
 
 ## Pharmacies
 
@@ -91,7 +121,7 @@ Bienvenue dans la documentation des endpoints de l'API de notre application.
   #### Réponse
   Retourne une liste de pharmacies.
 
-### Créer une Nouvelle Pharmacie (Ce endpoint requierd une authetification)
+### Créer une Nouvelle Pharmacie (Protéger par authentification)
 
 - **Endpoint:** `POST /api/pharmacies`
   
@@ -100,8 +130,7 @@ Bienvenue dans la documentation des endpoints de l'API de notre application.
   #### Paramètres de la Requête
   - `nom` : Nom de la pharmacie (chaîne de caractères, requis)
   - `adresse` : Adresse de la pharmacie (chaîne de caractères, requis)
-  - `telephone` : Telephone de la pharmacie (chaîne de caractères, requis)
+  - `telephone` : Téléphone de la pharmacie (chaîne de caractères, requis)
 
   #### Réponse
-  Retourne les détails de la pharmacie créée.
-
+  Retourne les détails de la
